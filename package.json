@@ -1,0 +1,23 @@
+{
+  "name": "pawiis_web_bff",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": {
+    "name": "Eduardo Alvarez",
+    "email": "eduardo.a1993@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.25",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
