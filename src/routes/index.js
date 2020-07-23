@@ -1,6 +1,7 @@
 const express = require('express');
 const UserServicesController = require('../controllers/user.controller');
 const PetServicesController = require('../controllers/pet.controller');
+const LogServicesController = require('../controllers/log.controller');
 
 const routes = express.Router();
 
@@ -14,5 +15,10 @@ routes.post('/users/signin', UserServicesController.signIn);
  */
 routes.post('/pet', PetServicesController.createNewPet);
 routes.get('/pet', PetServicesController.getPet);
+
+/**
+ * Log services
+ */
+routes.post('/log', LogServicesController.createNewLog);
 
 module.exports = routes;
