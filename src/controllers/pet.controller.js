@@ -2,13 +2,13 @@ const axios = require('axios');
 const config = require('../config/config.js');
 
 const createNewPet = async (req, res) => {
-	const { name, age, sex, owner } = req.body;
+	const { name, age, gender, owner } = req.body;
 
 	try {
 		const { data } = await axios.post(`${config.pet_service}/create`, {
 			name,
 			age,
-			sex,
+			gender,
 			owner,
 		});
 
