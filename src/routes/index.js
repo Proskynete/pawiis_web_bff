@@ -15,6 +15,7 @@ routes.post('/users/signin', UserServicesController.signIn);
  */
 routes.post('/pet', PetServicesController.createNewPet);
 routes.get('/pet', PetServicesController.getPet);
+routes.get('/pets', PetServicesController.getAllPet);
 
 /**
  * Log services
