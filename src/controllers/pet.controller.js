@@ -1,15 +1,19 @@
 const axios = require('axios');
 const config = require('../config/config.js');
 
-const signIn = async (req, res) => {
-	const { email, password } = req.body;
+const createNewPet = async (req, res) => {
+	const { name, age, sex, owner } = req.body;
+
 	try {
-		const { data } = await axios.post(
-			`${config.login_service}/signin?email=${email}&password=${password}`
-		);
+		const { data } = await axios.post(`${config.pet_service}/create`, {
+			name,
+			age,
+			sex,
+			owner,
+		});
 
 		return res.status(200).json({
-			user: data.user,
+			pet: data.pet,
 		});
 	} catch (error) {
 		return res.status(error.response.status).json({
@@ -19,5 +23,5 @@ const signIn = async (req, res) => {
 };
 
 module.exports = {
-	signIn,
+	createNewPet,
 };
