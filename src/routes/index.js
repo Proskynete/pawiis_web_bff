@@ -13,5 +13,6 @@ routes.post('/users/signin', UserServicesController.signIn);
  * Pet services
  */
 routes.post('/pet', PetServicesController.createNewPet);
+routes.get('/pet', PetServicesController.getPet);
 
 module.exports = routes;
