@@ -42,18 +42,12 @@ const getPet = async (req, res) => {
 	}
 };
 
-const getAllPet = async (req, res) => {
-	const { owner } = req.query;
+const getAllPets = async (req, res) => {
 	try {
-		const pet = await axios.get(`${config.pet_service}/get?owner=${owner}`);
-		const log = await axios.get(
-			`${config.log_service}/get?pet_id=${pet.data.pet._id}`
-		);
-
-		const pet_populated = { ...pet.data.pet, information: log.data.logs };
+		const { data } = await axios.get(`${config.pet_service}/get-all`);
 
 		return res.status(200).json({
-			pet: pet_populated,
+			pets: data.pets,
 		});
 	} catch (error) {
 		return res.status(error.response.status).json({
@@ -64,6 +58,6 @@ const getAllPet = async (req, res) => {
 
 module.exports = {
 	createNewPet,
-	getAllPet,
+	getAllPets,
 	getPet,
 };
